@@ -1,0 +1,67 @@
+.circuit-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--bg);
+  /* Clear band down the full middle of the page so all content is readable */
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 15%,
+    transparent 28%,
+    transparent 72%,
+    black 85%,
+    black 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 15%,
+    transparent 28%,
+    transparent 72%,
+    black 85%,
+    black 100%
+  );
+}
+
+.circuit-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  transform: translate(-50%, -50%);
+  opacity: 0.92;
+}
+
+.circuit-wires {
+  /* wires drawn first, behind gates */
+}
+
+.circuit-trace {
+  /* stroke set inline per wire color */
+}
+
+.circuit-pulse {
+  stroke-dasharray: 10 600;
+  stroke-dashoffset: 0;
+  animation: circuit-flow linear infinite;
+}
+
+@keyframes circuit-flow {
+  to {
+    stroke-dashoffset: -610;
+  }
+}
+
+.circuit-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 70%);
+}

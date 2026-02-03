@@ -1,0 +1,73 @@
+:root {
+  --bg: #0a0e14;
+  --bg-panel: #0d1117;
+  --grid: #161b22;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #00d4aa;
+  --accent-dim: #00a884;
+  --circuit: rgba(0, 212, 170, 0.35);
+  --circuit-pulse: rgba(0, 212, 170, 0.9);
+  /* Wire colors (trace = dim, pulse = bright) */
+  --wire-1: rgba(0, 212, 170, 0.4);
+  --wire-1-pulse: #00d4aa;
+  --wire-2: rgba(244, 114, 182, 0.4);
+  --wire-2-pulse: #f472b6;
+  --wire-3: rgba(251, 191, 36, 0.4);
+  --wire-3-pulse: #fbbf24;
+  --wire-4: rgba(96, 165, 250, 0.4);
+  --wire-4-pulse: #60a5fa;
+  --wire-5: rgba(167, 139, 250, 0.4);
+  --wire-5-pulse: #a78bfa;
+  --wire-6: rgba(52, 211, 153, 0.4);
+  --wire-6-pulse: #34d399;
+  --wire-7: rgba(248, 113, 113, 0.4);
+  --wire-7-pulse: #f87171;
+  --wire-8: rgba(34, 211, 238, 0.4);
+  --wire-8-pulse: #22d3ee;
+  --wire-9: rgba(196, 181, 253, 0.4);
+  --wire-9-pulse: #c4b5fd;
+  --wire-10: rgba(74, 222, 128, 0.4);
+  --wire-10-pulse: #4ade80;
+  --gate-stroke: rgba(139, 148, 158, 0.5);
+  --gate-fill: rgba(22, 27, 34, 0.6);
+  --border: #21262d;
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --radius: 6px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+a:hover {
+  color: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+}
