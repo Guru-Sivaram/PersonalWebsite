@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 const HOME_AUTOMATION_IMAGES = ['/1832.jpg', '/1833.jpg', '/1834.jpg', '/1835.jpg', '/1836.jpg', '/1837.jpg']
 const PAINT_IMAGES = ['/paint/1486.jpg', '/paint/1488.jpg', '/paint/1792.jpg', '/paint/1794.jpg', '/paint/1795.jpg']
 const PRINT3D_IMAGES = ['/3dprinting/1838.jpg', '/3dprinting/1839.jpg']
@@ -6,6 +8,10 @@ const POKER_IMAGE = 'https://images.unsplash.com/photo-1653495167982-51e02ce225c
 const TRADING_IMAGE = 'https://images.pexels.com/photos/187041/pexels-photo-187041.jpeg?auto=compress&cs=tinysrgb&w=800'
 
 export default function Hobbies() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <main className="main">
       <section className="hobbies hobbies-page">
