@@ -25,6 +25,30 @@
   );
 }
 
+/* On mobile, use a much wider mask so content stays readable */
+@media (max-width: 768px) {
+  .circuit-background {
+    mask-image: linear-gradient(
+      to right,
+      black 0%,
+      black 3%,
+      transparent 8%,
+      transparent 92%,
+      black 97%,
+      black 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      black 0%,
+      black 3%,
+      transparent 8%,
+      transparent 92%,
+      black 97%,
+      black 100%
+    );
+  }
+}
+
 .circuit-svg {
   position: absolute;
   top: 50%;
