@@ -170,20 +170,21 @@ const FEED_WIRES = [
 
 const WIRES_FINAL = [...FEED_WIRES, ...ALL_WIRES]
 
-// Vertical-dominant wires for mobile edges (left and right). Shown only on small viewports via CSS.
+// Vertical wires for mobile edges. ViewBox 0 0 700 550 with SVG 140% centered:
+// viewport 0% ≈ viewBox x 100, viewport 100% ≈ viewBox x 500. So left strip (0–8%) ≈ x 100–132, right (92–100%) ≈ x 468–500.
 const MOBILE_VERTICAL_WIRES = [
-  // Left edge (x ~25–70)
-  { d: 'M 28 -15 L 28 565', color: 1, duration: 2.8, delay: 0 },
-  { d: 'M 48 -15 L 48 565', color: 3, duration: 3.2, delay: 0.4 },
-  { d: 'M 68 -15 L 68 565', color: 5, duration: 2.6, delay: 0.8 },
-  { d: 'M 38 0 L 38 550', color: 7, duration: 3.4, delay: 0.2 },
-  { d: 'M 58 0 L 58 550', color: 9, duration: 2.9, delay: 0.6 },
-  // Right edge (x ~630–672)
-  { d: 'M 632 -15 L 632 565', color: 2, duration: 3, delay: 0.3 },
-  { d: 'M 652 -15 L 652 565', color: 4, duration: 2.7, delay: 0.7 },
-  { d: 'M 672 -15 L 672 565', color: 6, duration: 3.3, delay: 0.1 },
-  { d: 'M 642 0 L 642 550', color: 8, duration: 2.5, delay: 0.5 },
-  { d: 'M 662 0 L 662 550', color: 10, duration: 3.1, delay: 0.9 },
+  // Left visible strip (viewBox x 100–132)
+  { d: 'M 105 -20 L 105 570', color: 1, duration: 2.8, delay: 0 },
+  { d: 'M 115 -20 L 115 570', color: 3, duration: 3.2, delay: 0.4 },
+  { d: 'M 125 -20 L 125 570', color: 5, duration: 2.6, delay: 0.8 },
+  { d: 'M 110 0 L 110 550', color: 7, duration: 3.4, delay: 0.2 },
+  { d: 'M 120 0 L 120 550', color: 9, duration: 2.9, delay: 0.6 },
+  // Right visible strip (viewBox x 468–500)
+  { d: 'M 475 -20 L 475 570', color: 2, duration: 3, delay: 0.3 },
+  { d: 'M 485 -20 L 485 570', color: 4, duration: 2.7, delay: 0.7 },
+  { d: 'M 495 -20 L 495 570', color: 6, duration: 3.3, delay: 0.1 },
+  { d: 'M 480 0 L 480 550', color: 8, duration: 2.5, delay: 0.5 },
+  { d: 'M 490 0 L 490 550', color: 10, duration: 3.1, delay: 0.9 },
 ]
 
 export default function CircuitBackground() {
@@ -195,9 +196,9 @@ export default function CircuitBackground() {
         preserveAspectRatio="xMidYMid slice"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g className="circuit-wires-mobile-vertical" aria-hidden="true">
-          {MOBILE_VERTICAL_WIRES.map((wire, i) => (
-            <g key={`v-${i}`}>
+        <g className="circuit-wires">
+          {WIRES_FINAL.map((wire, i) => (
+            <g key={i}>
               <path
                 className="circuit-trace"
                 d={wire.d}
@@ -223,23 +224,23 @@ export default function CircuitBackground() {
             </g>
           ))}
         </g>
-        <g className="circuit-wires">
-          {WIRES_FINAL.map((wire, i) => (
-            <g key={i}>
+        <g className="circuit-wires-mobile-vertical" aria-hidden="true">
+          {MOBILE_VERTICAL_WIRES.map((wire, i) => (
+            <g key={`v-${i}`}>
               <path
-                className="circuit-trace"
+                className="circuit-trace circuit-trace-vertical"
                 d={wire.d}
                 fill="none"
-                strokeWidth="1"
+                strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 style={{ stroke: `var(--wire-${wire.color})` }}
               />
               <path
-                className="circuit-pulse"
+                className="circuit-pulse circuit-pulse-vertical"
                 d={wire.d}
                 fill="none"
-                strokeWidth="1.25"
+                strokeWidth="1.75"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 style={{

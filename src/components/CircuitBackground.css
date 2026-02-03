@@ -60,12 +60,13 @@
 }
 
 .circuit-wires-mobile-vertical {
-  display: none;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
   .circuit-wires-mobile-vertical {
-    display: block;
+    visibility: visible;
   }
 }
 
