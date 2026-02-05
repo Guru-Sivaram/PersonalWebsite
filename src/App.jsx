@@ -10,6 +10,12 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const location = useLocation()
+  // Scroll to hero when navigating to /#home (e.g. from another page)
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash === '#home') {
+      document.getElementById('home')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [location.pathname, location.hash])
 
   useEffect(() => {
     if (location.pathname === '/hobbies') {
@@ -48,7 +54,11 @@ export default function App() {
       <CircuitBackground />
       <header className="site-header">
         <nav className="nav">
-          <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>Guru</Link>
+          {location.pathname === '/' ? (
+            <a href="#home" className="nav-logo" onClick={() => setMenuOpen(false)}>Guru</a>
+          ) : (
+            <Link to="/#home" className="nav-logo" onClick={() => setMenuOpen(false)}>Guru</Link>
+          )}
           <ul className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
             <li><a href="/#about" className={activeSection === 'about' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>About</a></li>
             <li><a href="/#experience" className={activeSection === 'experience' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>Experience</a></li>
