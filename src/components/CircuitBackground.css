@@ -70,8 +70,8 @@
   }
 }
 
-.circuit-wires {
-  /* wires drawn first, behind gates */
+.circuit-trace-back {
+  opacity: 0.35;
 }
 
 .circuit-trace {
