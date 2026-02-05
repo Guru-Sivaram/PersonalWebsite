@@ -19,13 +19,16 @@
 
 .section-title {
   font-family: var(--font-mono);
-  font-size: 1.375rem;
+  font-size: 1.5rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--accent);
-  margin: 0 0 1rem;
+  margin: 0 auto 1.25rem;
   text-align: center;
+  padding-bottom: 0.05rem;
+  border-bottom: 1px solid var(--accent);
+  max-width: fit-content;
 }
 
 .site-header {
@@ -63,12 +66,24 @@
   margin: 0;
   padding: 0;
 }
-.nav-links a {
+.nav-links a,
+.nav-links .nav-link {
   color: var(--text-muted);
   font-size: 0.9375rem;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
 }
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links .nav-link:hover {
   color: var(--text);
+}
+.nav-links .nav-link-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.nav-links .nav-link-active:hover {
+  color: var(--accent-dim);
+  border-bottom-color: var(--accent-dim);
 }
 
 .nav-toggle {
@@ -115,6 +130,10 @@
   margin: 0 0 0.75rem;
   color: var(--text);
   animation: fadeUp 0.6s var(--ease) 0.1s both;
+  text-shadow:
+    0 0 20px rgba(0, 212, 170, 0.25),
+    0 0 40px rgba(0, 212, 170, 0.15),
+    0 0 60px rgba(0, 212, 170, 0.08);
 }
 
 .hero-tagline {
@@ -174,7 +193,7 @@
   display: block;
   border-radius: var(--radius);
   flex-shrink: 0;
-  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(0, 212, 170, 0.15), 0 0 40px rgba(0, 212, 170, 0.08);
 }
 .about-content p {
   margin: 0 0 1rem;
@@ -389,11 +408,13 @@
 .project-card {
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
 .project-card:hover {
   border-color: var(--accent-dim);
   background: rgba(0, 212, 170, 0.04);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 212, 170, 0.12), 0 0 24px rgba(0, 212, 170, 0.06);
 }
 
 .project-link {
@@ -401,9 +422,10 @@
   padding: 1rem 1.25rem;
   color: var(--text);
   text-align: center;
+  cursor: default;
 }
-.project-link:hover {
-  color: var(--accent);
+.project-card:hover .project-link {
+  color: var(--text);
 }
 
 .project-name {
@@ -577,13 +599,29 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem 1.5rem;
+  gap: 0.75rem 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .contact-links a {
+  display: inline-block;
   font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.contact-links a:hover {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
 }
 
 .site-footer {
@@ -598,8 +636,9 @@
 
 .site-footer p {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   color: var(--text-muted);
+  opacity: 0.85;
 }
 
 @media (max-width: 640px) {

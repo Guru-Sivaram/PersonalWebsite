@@ -1,11 +1,47 @@
-import { useState } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import CircuitBackground from './components/CircuitBackground'
 import Hobbies from './pages/Hobbies'
 import './App.css'
 
+const SECTION_IDS = ['home', 'about', 'experience', 'skills', 'education', 'work', 'contact']
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.pathname === '/hobbies') {
+      setActiveSection('hobbies')
+      return
+    }
+
+    const updateActiveSection = () => {
+      const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 20
+      if (nearBottom) {
+        setActiveSection('contact')
+        return
+      }
+      const offset = 120
+      let current = ''
+      for (const id of SECTION_IDS) {
+        const el = document.getElementById(id)
+        if (!el) continue
+        const top = el.getBoundingClientRect().top
+        if (top <= offset) current = id === 'home' ? '' : id
+      }
+      setActiveSection(current)
+    }
+
+    updateActiveSection() // run on mount
+    window.addEventListener('scroll', updateActiveSection, { passive: true })
+    window.addEventListener('resize', updateActiveSection)
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection)
+      window.removeEventListener('resize', updateActiveSection)
+    }
+  }, [location.pathname])
 
   return (
     <>
@@ -14,13 +50,13 @@ export default function App() {
         <nav className="nav">
           <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>Guru</Link>
           <ul className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
-            <li><a href="/#about" onClick={() => setMenuOpen(false)}>About</a></li>
-            <li><a href="/#experience" onClick={() => setMenuOpen(false)}>Experience</a></li>
-            <li><a href="/#skills" onClick={() => setMenuOpen(false)}>Skills</a></li>
-            <li><a href="/#education" onClick={() => setMenuOpen(false)}>Education</a></li>
-            <li><a href="/#work" onClick={() => setMenuOpen(false)}>Work Projects</a></li>
-            <li><Link to="/hobbies" onClick={() => setMenuOpen(false)}>Hobbies</Link></li>
-            <li><a href="/#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
+            <li><a href="/#about" className={activeSection === 'about' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>About</a></li>
+            <li><a href="/#experience" className={activeSection === 'experience' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>Experience</a></li>
+            <li><a href="/#skills" className={activeSection === 'skills' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>Skills</a></li>
+            <li><a href="/#education" className={activeSection === 'education' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>Education</a></li>
+            <li><a href="/#work" className={activeSection === 'work' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>Work Projects</a></li>
+            <li><a href="/#contact" className={activeSection === 'contact' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>Contact</a></li>
+            <li><Link to="/hobbies" className={activeSection === 'hobbies' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>Hobbies</Link></li>
           </ul>
           <button
             className="nav-toggle"
@@ -132,22 +168,22 @@ export default function App() {
           <h2 className="section-title">Selected projects</h2>
           <ul className="project-list">
             <li className="project-card">
-              <a href="#" className="project-link">
+              <div className="project-link">
                 <span className="project-name">Data Center Transition and Expansion</span>
                 <span className="project-desc">Led migration from VMware to Nutanix alongside a data center expansion for on-prem systems. Scope included power, cooling, rack space, asset management, performance analysis (CPU, RAM, DISK), and software compatibility.</span>
-              </a>
+              </div>
             </li>
             <li className="project-card">
-              <a href="#" className="project-link">
+              <div className="project-link">
                 <span className="project-name">Datacenter Reclamation</span>
                 <span className="project-desc">Comprehensive analysis of CPU, power, memory, and disk across virtualized servers to rightsize infrastructure. Worked with lines of business to retain or improve performance throughout the effort.</span>
-              </a>
+              </div>
             </li>
             <li className="project-card">
-              <a href="#" className="project-link">
+              <div className="project-link">
                 <span className="project-name">Infrastructure Automation</span>
                 <span className="project-desc">Server build automation, server patch automation, Infoblox fixed address and DHCP automation, WSUS automation, hardware TRAP automation, and more. Implemented in PowerShell, Python, and Bash.</span>
-              </a>
+              </div>
             </li>
           </ul>
         </section>
