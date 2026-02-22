@@ -24,8 +24,8 @@ export default function Hobbies() {
             Gigabit networking for the house, NAS, Plex Server, lighting automation, Home Assistant and Google Home commands, automations, vacuum cleaning, lighting mood, garage door, water leak sensors, vibration sensors, alerting, and more!
           </p>
           <div className="hobby-collage" aria-label="Home automation photos">
-            {HOME_AUTOMATION_IMAGES.map((src, i) => (
-              <img key={src} src={src} alt="" className="hobby-collage-img" />
+            {HOME_AUTOMATION_IMAGES.map((src) => (
+              <img key={src} src={src} alt="" className="hobby-collage-img" loading="lazy" />
             ))}
           </div>
         </article>
@@ -37,7 +37,7 @@ export default function Hobbies() {
           </p>
           <div className="hobby-collage hobby-collage-pair" aria-label="3D printing photos">
             {PRINT3D_IMAGES.map((src) => (
-              <img key={src} src={src} alt="" className="hobby-collage-img" />
+              <img key={src} src={src} alt="" className="hobby-collage-img" loading="lazy" />
             ))}
           </div>
         </article>
@@ -49,7 +49,7 @@ export default function Hobbies() {
           </p>
           <div className="hobby-collage hobby-collage-pair" aria-label="Houseplants photos">
             {BOTANY_IMAGES.map((src) => (
-              <img key={src} src={src} alt="" className="hobby-collage-img" />
+              <img key={src} src={src} alt="" className="hobby-collage-img" loading="lazy" />
             ))}
           </div>
         </article>
@@ -61,7 +61,7 @@ export default function Hobbies() {
           </p>
           <div className="hobby-collage" aria-label="Spackling and painting photos">
             {PAINT_IMAGES.map((src) => (
-              <img key={src} src={src} alt="" className="hobby-collage-img" />
+              <img key={src} src={src} alt="" className="hobby-collage-img" loading="lazy" />
             ))}
           </div>
         </article>
@@ -72,7 +72,7 @@ export default function Hobbies() {
             Primarily swing trade various markets open to the consumer, like futures, resources, equities, options, and other asset classes. Due diligence performed; I primarily stick to analyzing fundamentals using balance sheets, cash flow, and income statements.
           </p>
           <div className="hobby-collage hobby-collage-full" aria-label="Trading">
-            <img src={TRADING_IMAGE} alt="Stock market chart" className="hobby-collage-img" />
+            <img src={TRADING_IMAGE} alt="Stock market chart" className="hobby-collage-img" loading="lazy" />
           </div>
         </article>
 
@@ -82,7 +82,7 @@ export default function Hobbies() {
             Primarily play GTO (Game Theory Optimal), a mathematical approach to the game with pot odds, positions, etc.
           </p>
           <div className="hobby-collage hobby-collage-full" aria-label="Poker">
-            <img src={POKER_IMAGE} alt="Poker chips on a table" className="hobby-collage-img" />
+            <img src={POKER_IMAGE} alt="Poker chips on a table" className="hobby-collage-img" loading="lazy" />
           </div>
         </article>
       </section>

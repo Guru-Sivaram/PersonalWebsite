@@ -143,7 +143,7 @@ export default function App() {
             <div className="skills-group">
               <h3 className="skills-label">Applications & Technologies</h3>
               <div className="skills-list">
-                {['AWS (S3, EC2, Athena, RDS, VPC, Glue)', 'Splunk Enterprise', 'Tableau', 'Git', 'Jira', 'Asana', 'VMWare', 'Nutanix', 'ELK', 'Ansible', 'Docker', 'Kubernetes', 'Jenkins', 'Apache', 'Varonis', 'Infoblox', 'MS Office'].map((skill) => (
+                {['AWS (S3, EC2, Athena, RDS, VPC, Glue)', 'Splunk Enterprise', 'Tableau', 'Power BI', 'Git', 'Jira', 'Asana', 'VMWare', 'Nutanix', 'ELK', 'Ansible', 'Docker', 'Kubernetes', 'Jenkins', 'Apache', 'Varonis', 'Infoblox', 'MS Office'].map((skill) => (
                   <span key={skill} className="skills-pill">{skill}</span>
                 ))}
               </div>
@@ -170,6 +170,7 @@ export default function App() {
         <section id="education" className="education">
           <h2 className="section-title">Education</h2>
           <div className="education-content">
+            <h3 className="education-subtitle">Higher Education</h3>
             <div className="education-list">
               <article className="education-entry">
                 <h3 className="education-school">New York University (NYU); Tandon School of Engineering</h3>
@@ -200,7 +201,7 @@ export default function App() {
             <li className="project-card">
               <div className="project-link">
                 <span className="project-name">Data Center Transition and Expansion</span>
-                <span className="project-desc">Led migration from VMware to Nutanix alongside a data center expansion for on-prem systems. Scope included power, cooling, rack space, asset management, performance analysis (CPU, RAM, DISK), and software compatibility.</span>
+                <span className="project-desc">Migration from VMware to Nutanix alongside a data center expansion for on-prem systems. Scope included power, cooling, rack space, asset management, performance analysis (CPU, RAM, DISK), and software compatibility.</span>
               </div>
             </li>
             <li className="project-card">
@@ -212,7 +213,7 @@ export default function App() {
             <li className="project-card">
               <div className="project-link">
                 <span className="project-name">Infrastructure Automation</span>
-                <span className="project-desc">Server build automation, server patch automation, Infoblox fixed address and DHCP automation, WSUS automation, hardware TRAP automation, and more. Implemented in PowerShell, Python, and Bash.</span>
+                <span className="project-desc">Server build automation, server patch automation, Infoblox fixed address and DHCP automation, WSUS automation, hardware TRAP automation, and more. Implemented in PowerShell, Javascript, Python, and Bash.</span>
               </div>
             </li>
           </ul>
