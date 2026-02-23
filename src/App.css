@@ -541,71 +541,80 @@
   }
 }
 
+/* Hobby collages: unified grid system */
 .hobby-collage {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 12rem);
-  gap: 0.5rem;
+  gap: 0.25rem;
   border-radius: var(--radius);
   overflow: hidden;
 }
 
-.hobby-collage-img {
+.hobby-collage-item {
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  background: var(--bg-panel);
+}
+
+.hobby-collage-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  vertical-align: middle;
 }
 
-.hobby-collage-img:first-child {
+/* Rotate 90deg (for 3D print / houseplants / lightswitch) – scale so rotated image fills cell */
+.hobby-collage-item--rotate-90 img {
+  transform: rotate(90deg) scale(1.5);
+  object-fit: cover;
+}
+
+/* 6 images: 3×3 grid, first item spans 2×2 (feature) */
+.hobby-collage--6 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 10rem;
+}
+
+.hobby-collage--6 .hobby-collage-item:first-child {
   grid-column: span 2;
   grid-row: span 2;
 }
 
-.hobby-collage-pair {
+/* 5 images: same 3×3, first spans 2×2 */
+.hobby-collage--5 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 10rem;
+}
+
+.hobby-collage--5 .hobby-collage-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* 2 images: side by side */
+.hobby-collage--2 {
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 14rem;
+  grid-auto-rows: 14rem;
 }
 
-.hobby-collage-pair .hobby-collage-img {
-  min-height: 0;
-}
-
-.hobby-collage-pair .hobby-collage-img:first-child {
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
-.hobby-collage-full {
+/* 1 image: single full-width row */
+.hobby-collage--1 {
   grid-template-columns: 1fr;
-  grid-template-rows: 14rem;
-}
-
-.hobby-collage-full .hobby-collage-img {
-  grid-column: span 1;
-  grid-row: span 1;
-  min-height: 0;
-}
-
-.hobby-collage-single {
-  display: flex;
-  justify-content: center;
-  grid-template-columns: unset;
-  grid-template-rows: unset;
-}
-
-.hobby-collage-single .hobby-collage-img {
-  max-width: 24rem;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/3;
-  border-radius: var(--radius);
+  grid-auto-rows: 14rem;
 }
 
 .contact {
-  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 18rem;
+  padding: 3.25rem 0;
   border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   text-align: center;
+  box-sizing: border-box;
 }
 
 .contact-intro {
@@ -657,7 +666,6 @@
   max-width: 52rem;
   margin: 0 auto;
   padding: 2rem 1.25rem;
-  border-top: 1px solid var(--border);
   text-align: center;
 }
 

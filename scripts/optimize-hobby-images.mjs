@@ -23,6 +23,7 @@ async function optimize(path) {
   const inputPath = join(PUBLIC, path)
   try {
     const info = await sharp(inputPath)
+      .rotate() // apply EXIF orientation so images display right-side up
       .resize(MAX_WIDTH, null, { withoutEnlargement: true })
       .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
       .toFile(inputPath + '.tmp')
