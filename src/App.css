@@ -35,7 +35,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 14, 20, 0.85);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -104,6 +104,26 @@
   height: 2px;
   background: currentColor;
   border-radius: 1px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-left: 0.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.theme-toggle:hover {
+  color: var(--accent);
+  background: rgba(0, 212, 170, 0.1);
 }
 
 .hero {
@@ -621,6 +641,48 @@
   font-size: 1.0625rem;
   color: var(--text-muted);
   margin: 0 0 1rem;
+}
+
+/* Light mode: about, hero tagline, contact intro, project descriptions, skills labels, footer in black for readability */
+[data-theme="light"] .about-content p,
+[data-theme="light"] .hero-tagline,
+[data-theme="light"] .contact-intro,
+[data-theme="light"] .project-desc,
+[data-theme="light"] .skills-label,
+[data-theme="light"] .site-footer p {
+  color: #000;
+}
+[data-theme="light"] .site-footer p {
+  opacity: 1;
+}
+
+/* Light mode: orange glows/shadows (accent is orange) */
+[data-theme="light"] .nav-links .nav-link-active {
+  text-shadow: 0 0 10px rgba(194, 65, 12, 0.6), 0 0 20px rgba(194, 65, 12, 0.3);
+}
+[data-theme="light"] .nav-links .nav-link-active:hover {
+  text-shadow: 0 0 10px rgba(194, 65, 12, 0.5), 0 0 18px rgba(194, 65, 12, 0.25);
+}
+[data-theme="light"] .hero-title {
+  text-shadow: 0 0 20px rgba(194, 65, 12, 0.25), 0 0 40px rgba(194, 65, 12, 0.15), 0 0 60px rgba(194, 65, 12, 0.08);
+}
+[data-theme="light"] .about-photo {
+  box-shadow: 0 4px 24px rgba(194, 65, 12, 0.15), 0 0 40px rgba(194, 65, 12, 0.08);
+}
+[data-theme="light"] .theme-toggle:hover {
+  background: rgba(194, 65, 12, 0.1);
+}
+[data-theme="light"] .skills-pill {
+  background: rgba(194, 65, 12, 0.12);
+  border-color: rgba(194, 65, 12, 0.35);
+}
+[data-theme="light"] .skills-pill:hover {
+  border-color: rgba(194, 65, 12, 0.5);
+  background: rgba(194, 65, 12, 0.18);
+}
+[data-theme="light"] .project-card:hover {
+  background: rgba(194, 65, 12, 0.04);
+  box-shadow: 0 6px 20px rgba(194, 65, 12, 0.12), 0 0 24px rgba(194, 65, 12, 0.06);
 }
 
 .contact-links {

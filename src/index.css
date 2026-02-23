@@ -32,10 +32,47 @@
   --gate-stroke: rgba(139, 148, 158, 0.5);
   --gate-fill: rgba(22, 27, 34, 0.6);
   --border: #484f58;
+  --header-bg: rgba(10, 14, 20, 0.85);
   --font-sans: "Space Grotesk", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --radius: 6px;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light theme: UI + darker circuit wires for visibility */
+[data-theme="light"] {
+  --bg: #f0f2f5;
+  --bg-panel: #ffffff;
+  --grid: #dde1e6;
+  --text: #0d1117;
+  --text-muted: #424a53;
+  --border: #b1bac4;
+  --accent: #c2410c;
+  --accent-dim: #9a3412;
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --gate-stroke: rgba(66, 74, 83, 0.5);
+  --gate-fill: rgba(255, 255, 255, 0.8);
+  /* Darker wires for light background */
+  --wire-1: rgba(0, 100, 85, 0.55);
+  --wire-1-pulse: rgba(0, 115, 95, 0.9);
+  --wire-2: rgba(120, 85, 95, 0.45);
+  --wire-2-pulse: rgba(140, 100, 115, 0.7);
+  --wire-3: rgba(130, 110, 70, 0.45);
+  --wire-3-pulse: rgba(150, 125, 80, 0.7);
+  --wire-4: rgba(70, 100, 130, 0.45);
+  --wire-4-pulse: rgba(85, 120, 155, 0.7);
+  --wire-5: rgba(95, 90, 130, 0.45);
+  --wire-5-pulse: rgba(110, 105, 155, 0.7);
+  --wire-6: rgba(50, 110, 95, 0.45);
+  --wire-6-pulse: rgba(65, 130, 110, 0.7);
+  --wire-7: rgba(130, 95, 95, 0.45);
+  --wire-7-pulse: rgba(155, 115, 115, 0.7);
+  --wire-8: rgba(60, 110, 120, 0.45);
+  --wire-8-pulse: rgba(75, 130, 150, 0.7);
+  --wire-9: rgba(110, 105, 155, 0.45);
+  --wire-9-pulse: rgba(130, 125, 180, 0.7);
+  --wire-10: rgba(65, 120, 100, 0.45);
+  --wire-10-pulse: rgba(85, 145, 120, 0.7);
 }
 
 *,

@@ -5,11 +5,30 @@ import Hobbies from './pages/Hobbies'
 import './App.css'
 
 const SECTION_IDS = ['home', 'about', 'experience', 'skills', 'education', 'work', 'contact']
+const THEME_KEY = 'guru-site-theme'
+
+function getInitialTheme() {
+  try {
+    const saved = localStorage.getItem(THEME_KEY)
+    if (saved === 'light' || saved === 'dark') return saved
+  } catch (_) {}
+  return 'dark'
+}
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
+  const [theme, setTheme] = useState(getInitialTheme)
   const location = useLocation()
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    try {
+      localStorage.setItem(THEME_KEY, theme)
+    } catch (_) {}
+  }, [theme])
+
+  const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
   // Scroll to hero when navigating to /#home (e.g. from another page)
   useEffect(() => {
     if (location.pathname === '/' && location.hash === '#home') {
@@ -68,6 +87,19 @@ export default function App() {
             <li><a href="/#contact" className={activeSection === 'contact' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>Contact</a></li>
             <li><Link to="/hobbies" className={activeSection === 'hobbies' ? 'nav-link nav-link-active' : 'nav-link'} onClick={() => setMenuOpen(false)}>Hobbies</Link></li>
           </ul>
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          >
+            {theme === 'dark' ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            )}
+          </button>
           <button
             className="nav-toggle"
             aria-label="Toggle menu"
