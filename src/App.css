@@ -473,6 +473,7 @@
   font-weight: 500;
   font-size: 1.125rem;
   margin-bottom: 0.2rem;
+  color: var(--accent);
 }
 
 .project-desc {
@@ -643,14 +644,22 @@
   margin: 0 0 1rem;
 }
 
-/* Light mode: about, hero tagline, contact intro, project descriptions, skills labels, footer in black for readability */
+/* Dark mode: about, hero tagline, project descriptions, contact intro in white */
+[data-theme="dark"] .about-content p,
+[data-theme="dark"] .hero-tagline,
+[data-theme="dark"] .project-desc,
+[data-theme="dark"] .contact-intro {
+  color: #fff;
+}
+
+/* Light mode: about, hero tagline, contact intro, project descriptions, skills labels, footer use --text for contrast */
 [data-theme="light"] .about-content p,
 [data-theme="light"] .hero-tagline,
 [data-theme="light"] .contact-intro,
 [data-theme="light"] .project-desc,
 [data-theme="light"] .skills-label,
 [data-theme="light"] .site-footer p {
-  color: #000;
+  color: var(--text);
 }
 [data-theme="light"] .site-footer p {
   opacity: 1;
@@ -658,31 +667,31 @@
 
 /* Light mode: orange glows/shadows (accent is orange) */
 [data-theme="light"] .nav-links .nav-link-active {
-  text-shadow: 0 0 10px rgba(194, 65, 12, 0.6), 0 0 20px rgba(194, 65, 12, 0.3);
+  text-shadow: 0 0 10px rgba(176, 58, 10, 0.6), 0 0 20px rgba(176, 58, 10, 0.3);
 }
 [data-theme="light"] .nav-links .nav-link-active:hover {
-  text-shadow: 0 0 10px rgba(194, 65, 12, 0.5), 0 0 18px rgba(194, 65, 12, 0.25);
+  text-shadow: 0 0 10px rgba(176, 58, 10, 0.5), 0 0 18px rgba(176, 58, 10, 0.25);
 }
 [data-theme="light"] .hero-title {
-  text-shadow: 0 0 20px rgba(194, 65, 12, 0.25), 0 0 40px rgba(194, 65, 12, 0.15), 0 0 60px rgba(194, 65, 12, 0.08);
+  text-shadow: 0 0 20px rgba(176, 58, 10, 0.25), 0 0 40px rgba(176, 58, 10, 0.15), 0 0 60px rgba(176, 58, 10, 0.08);
 }
 [data-theme="light"] .about-photo {
-  box-shadow: 0 4px 24px rgba(194, 65, 12, 0.15), 0 0 40px rgba(194, 65, 12, 0.08);
+  box-shadow: 0 4px 24px rgba(176, 58, 10, 0.15), 0 0 40px rgba(176, 58, 10, 0.08);
 }
 [data-theme="light"] .theme-toggle:hover {
-  background: rgba(194, 65, 12, 0.1);
+  background: rgba(176, 58, 10, 0.1);
 }
 [data-theme="light"] .skills-pill {
-  background: rgba(194, 65, 12, 0.12);
-  border-color: rgba(194, 65, 12, 0.35);
+  background: rgba(176, 58, 10, 0.12);
+  border-color: rgba(176, 58, 10, 0.35);
 }
 [data-theme="light"] .skills-pill:hover {
-  border-color: rgba(194, 65, 12, 0.5);
-  background: rgba(194, 65, 12, 0.18);
+  border-color: rgba(176, 58, 10, 0.5);
+  background: rgba(176, 58, 10, 0.18);
 }
 [data-theme="light"] .project-card:hover {
-  background: rgba(194, 65, 12, 0.04);
-  box-shadow: 0 6px 20px rgba(194, 65, 12, 0.12), 0 0 24px rgba(194, 65, 12, 0.06);
+  background: rgba(176, 58, 10, 0.04);
+  box-shadow: 0 6px 20px rgba(176, 58, 10, 0.12), 0 0 24px rgba(176, 58, 10, 0.06);
 }
 
 .contact-links {

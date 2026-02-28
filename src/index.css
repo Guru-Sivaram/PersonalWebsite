@@ -39,16 +39,16 @@
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Light theme: UI + darker circuit wires for visibility */
+/* Light theme: UI + darker circuit wires for visibility. Darker text + richer accent for readability. */
 [data-theme="light"] {
   --bg: #f0f2f5;
   --bg-panel: #ffffff;
   --grid: #dde1e6;
-  --text: #0d1117;
-  --text-muted: #424a53;
+  --text: #0a0c0e;
+  --text-muted: #363d45;
   --border: #6e7681;
-  --accent: #c2410c;
-  --accent-dim: #9a3412;
+  --accent: #b03a0a;
+  --accent-dim: #8b2e0f;
   --header-bg: rgba(255, 255, 255, 0.95);
   --gate-stroke: rgba(66, 74, 83, 0.5);
   --gate-fill: rgba(255, 255, 255, 0.8);
