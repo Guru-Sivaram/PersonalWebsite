@@ -654,12 +654,14 @@
   color: #e6edf3;
 }
 
-/* Light mode: about, hero tagline, contact intro, project descriptions, skills labels, footer use --text for contrast */
+/* Light mode: about, hero tagline, contact intro, project descriptions, skills labels, hobbies intro/descriptions, footer use --text for contrast */
 [data-theme="light"] .about-content p,
 [data-theme="light"] .hero-tagline,
 [data-theme="light"] .contact-intro,
 [data-theme="light"] .project-desc,
 [data-theme="light"] .skills-label,
+[data-theme="light"] .hobbies-intro,
+[data-theme="light"] .hobby-desc,
 [data-theme="light"] .site-footer p {
   color: var(--text);
 }
