@@ -644,12 +644,12 @@
   margin: 0 0 1rem;
 }
 
-/* Dark mode: about, hero tagline, project descriptions, contact intro in white */
+/* Dark mode: about, hero tagline, project descriptions, contact intro in soft white */
 [data-theme="dark"] .about-content p,
 [data-theme="dark"] .hero-tagline,
 [data-theme="dark"] .project-desc,
 [data-theme="dark"] .contact-intro {
-  color: #fff;
+  color: #e6edf3;
 }
 
 /* Light mode: about, hero tagline, contact intro, project descriptions, skills labels, footer use --text for contrast */
