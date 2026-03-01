@@ -644,11 +644,13 @@
   margin: 0 0 1rem;
 }
 
-/* Dark mode: about, hero tagline, project descriptions, contact intro in soft white */
+/* Dark mode: about, hero tagline, project descriptions, contact intro, hobbies intro/descriptions in soft white */
 [data-theme="dark"] .about-content p,
 [data-theme="dark"] .hero-tagline,
 [data-theme="dark"] .project-desc,
-[data-theme="dark"] .contact-intro {
+[data-theme="dark"] .contact-intro,
+[data-theme="dark"] .hobbies-intro,
+[data-theme="dark"] .hobby-desc {
   color: #e6edf3;
 }
 
